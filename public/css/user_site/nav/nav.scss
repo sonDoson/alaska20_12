@@ -29,32 +29,38 @@ nav{
         }
     }
 }
-.list_lv0{
-    &:hover{
-        background-color: grey;
-        .anchor_lv0{
-            color: #FFFFFF;
+#menu{
+    li{
+        text-align: left;
+        padding-left: 10px;
+        color: #FFFFFF;
+        i{
+            width: 20px;
         }
-        .menu_lv1{
-            display: block;
+        &:hover{
+            background-color: grey;
+            .anchor_lv0{
+                color: #FFFFFF;
+            }
+            .menu_lv1{
+                display: block;
+            }
+            ul{
+                display: block;
+                .anchor_lv1{
+                    
+                }
+            }
         }
-    }
-}
-.menu_lv1{
-    display: none;
-    z-index: 10;
-    background-color: #57506d;
-    box-shadow: 3px 0px 9px 0 rgba(0, 0, 0, 0.28);
-    position: absolute;
-    width: 10%;
-    margin-top: -27px;
-    left: 9%;
-}
-.list_lv1{
-    &:hover{
-        background-color: grey;
-        .anchor_lv1{
-            color: #FFFFFF;
+        ul{
+            display: none;
+            z-index: 10;
+            background-color: #57506d;
+            box-shadow: 3px 0px 9px 0 rgba(0, 0, 0, 0.28);
+            position: absolute;
+            width: 10%;
+            margin-top: -27px;
+            left: 9%;
         }
     }
 }

@@ -34,15 +34,14 @@ body {
 .form .post-td:nth-child(1) {
   padding-right: 10px; }
 .form .post-td:nth-child(2) {
-  width: 600px;
   padding-left: 10px; }
 .form label {
-  line-height: 30px; }
+  padding-top: 4px;
+  padding-bottom: 4px; }
 .form input, .form select {
-  margin-bottom: 10px;
+  padding: 7px;
   background-color: #ffffff;
   box-shadow: 0px 0px 4px 0 rgba(0, 0, 0, 0.28);
-  height: 30px;
   border: none; }
 .form .input-style {
   width: 200px; }

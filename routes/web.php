@@ -31,7 +31,24 @@ Route::get('/user/repasswd', 'ControllerUserRePasswd@getRePasswd')->name('getReP
 Route::post('/user/repasswd', 'ControllerUserRePasswd@postRePasswd')->name('postRePasswd');
 
 Route::group(['middleware' => ['auth']], function () {
+    //CMS
+    Route::get('/cms/welcome', 'ControllerCmsWelcome@getCmsWelcome')->name('getCmsWelcome');
+    Route::get('/cms/roll_back', 'ControllerCmsRollBack@getCmsRollBack')->name('getCmsRollBack');
+    
+    Route::get('/cms/User/List', 'ControllerCmsUser@getCmsUserList')->name('getCmsUserList');
+    Route::get('/cms/User/Add', 'ControllerCmsUser@getCmsUserAdd')->name('getCmsUserAdd');
+    Route::post('/cms/User/Add', 'ControllerCmsUser@postCmsUserAdd')->name('postCmsUserAdd');
+    
+    Route::get('/cms/User/Role', 'ControllerCmsUser@getCmsUserRole')->name('getCmsUserRole');
+    Route::get('/cms/User/Role/Add', 'ControllerCmsUser@getCmsUserRoleAdd')->name('getCmsUserRoleAdd');
+    Route::post('/cms/User/Role/Add', 'ControllerCmsUser@postCmsUserRoleAdd')->name('postCmsUserRoleAdd');
    
+    Route::get('/cms/Recruitment/List', 'ControllerCmsRecruiment@getCmsRecruimentList')->name('getCmsRecruimentList');
+    Route::get('/cms/Recruitment/Files', 'ControllerCmsRecruiment@getCmsRecruimentFiles')->name('getCmsRecruimentFiles');
+
+    Route::get('/cms/Admissions/List', 'ControllerCmsAdmissions@getCmsAdmissionsList')->name('getCmsAdmissionsList');
+    Route::get('/cms/Admissions/Files', 'ControllerCmsAdmissions@getCmsAdmissionsFiles')->name('getCmsAdmissionsFiles');
+    //
     Route::get('/user/welcome', 'ControllerUserWelcome@getUserWelcome')->name('getUserWelcome');
     Route::get('/user/setting', 'ControllerUserSetting@getUserSetting')->name('getUserSetting');
     Route::post('/user/setting', 'ControllerUserSetting@postUserSetting')->name('postUserSetting');

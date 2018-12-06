@@ -24,7 +24,7 @@ class PostsAdd{
                 'value.vn.required' => 'Vui long nhap noi dung tieng Viet'
             ]);
             if($validator->fails()) {
-                return $validator;
+                return $validator->messages;
             }   else    {
                 $id = DB::table($table)->insertGetId(
                     [

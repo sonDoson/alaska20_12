@@ -15,7 +15,7 @@ class ControllerUserLogin extends Controller
     }
     public function postLogin(Request $request){
         if (Auth::attempt(['name' => $request->name, 'password' => $request->password])) {
-            return redirect()->route('getUserWelcome');
+            return redirect()->route('getCmsWelcome');
 		}	else	{
 			return redirect('login');
 		}
