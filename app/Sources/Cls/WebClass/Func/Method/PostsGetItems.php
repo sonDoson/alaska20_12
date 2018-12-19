@@ -17,4 +17,16 @@ class PostsGetItems{
         }
         return $return;
     }
+    public static function postsGetItemsNoName($table_posts, $id_category, $take = 10){ 
+        //get list id
+        $list_id = DB::table($table_posts)->select('id')->where('id_category', $id_category )->take($take)->get();
+        //get cate name
+        $category_name = DB::table(substr_replace($table_posts, "category", -5))->where('id', $id_category)->first();
+        $category_name = $category_name->name_vn;
+        $return = array();
+        foreach($list_id as $id){
+            $return[] = PostsGetSingleItem::postsGetSingleItem($table_posts, $id->id);
+        }
+        return $return;
+    }
 }

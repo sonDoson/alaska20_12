@@ -13,6 +13,7 @@
     <link href="{{ asset('css/client/footer/footer.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/client/header/header.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/client/header/banner_01.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/client/content/left_side.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/client/content/introduce.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/client/content/layout_01_page.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/client/content/lv_category.css') }}" rel="stylesheet" />
@@ -29,9 +30,7 @@
         @include('client.nav_and_footer.nav_left_side')
         @yield('content')
     </div>
-    <div class="content">
-        @include('client.content.new_elements')
-    </div>
+    <!--new elements - deleted-->
     <div style="margin-top: 30px;">
         @include('client.nav_and_footer.footer')
     </div>

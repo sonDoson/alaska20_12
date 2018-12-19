@@ -8,25 +8,14 @@ use App\Sources\Cls\WebClass\Func\Category;
 use App\Sources\Cls\WebClass\Func\Method\PostsGetItems;
 use App\Sources\Cls\WebClass\Func\Method\PostsGetStress;
 use App\Sources\Cls\Config\Config;
+use App\Sources\Cls\WebClass\Func\ClientContact;
 use DB;
 
 class ControllerHlineItems extends Controller
 {
     public function getHline(){
         //contact
-        $cont = DB::table('contact')->where('id', 1)->first();
-        $contact = array();
-        $contact['name_en'] = $cont->name_en;
-        $contact['name_vn'] = $cont->name_vn;
-        $contact['value_en'] = $cont->value_en;
-        $contact['value_vn'] = $cont->value_vn;
-        $contact['link']['facebook']['link'] = $cont->facebook;
-        $contact['link']['facebook']['icon'] = 'fab fa-facebook';
-        $contact['link']['youtube']['link'] = $cont->youtube;
-        $contact['link']['youtube']['icon'] = 'fab fa-youtube';
-        $contact['link']['instagram']['link'] = $cont->instagram;
-        $contact['link']['instagram']['icon'] = 'fab fa-instagram';
-        $contact['map'] = $cont->map;
+        $contact = ClientContact::getContact();
         //section
         $lang_section = Config::configLanguage();
         $lang[] = 'name_' . $lang_section;

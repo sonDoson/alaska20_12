@@ -1,0 +1,10 @@
+.right-side li {
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid grey; }
+  .right-side li .inner {
+    text-align: left;
+    width: 100%; }
+
+/*# sourceMappingURL=right_side.css.map */

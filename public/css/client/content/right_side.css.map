@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACI,cAAE;EACE,QAAQ,EAAE,QAAQ;EAClB,WAAW,EAAE,IAAI;EACjB,cAAc,EAAE,IAAI;EACpB,aAAa,EAAE,cAAc;EAC7B,qBAAM;IACF,UAAU,EAAE,IAAI;IAChB,KAAK,EAAE,IAAI",
+"sources": ["right_side.scss"],
+"names": [],
+"file": "right_side.css"
+}

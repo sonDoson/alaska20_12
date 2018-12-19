@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sources\Cls\WebClass\Func\ClientContact;
 use App\Sources\Cls\WebClass\Func\Category;
 use App\Sources\Cls\WebClass\Func\Method\PostsGetItems;
 use App\Sources\Cls\WebClass\Func\Method\PostsGetStress;
@@ -17,19 +18,7 @@ class ControllerContact extends Controller
         $lang[] = 'name_' . $lang_section;
         $lang[] = 'value_' . $lang_section;
         //contact
-        $cont = DB::table('contact')->where('id', 1)->first();
-        $contact = array();
-        $contact['name_en'] = $cont->name_en;
-        $contact['name_vn'] = $cont->name_vn;
-        $contact['value_en'] = $cont->value_en;
-        $contact['value_vn'] = $cont->value_vn;
-        $contact['link']['facebook']['link'] = $cont->facebook;
-        $contact['link']['facebook']['icon'] = 'fab fa-facebook';
-        $contact['link']['youtube']['link'] = $cont->youtube;
-        $contact['link']['youtube']['icon'] = 'fab fa-youtube';
-        $contact['link']['instagram']['link'] = $cont->instagram;
-        $contact['link']['instagram']['icon'] = 'fab fa-instagram';
-        $contact['map'] = $cont->map;
+        $contact = ClientContact::getContact();
         //category
         $category = Category::categoryGet('posts_category');
         foreach($category as $i => $value){

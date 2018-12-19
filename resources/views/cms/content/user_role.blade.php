@@ -20,7 +20,7 @@
                 <td>&nbsp;{{ $values->name }}</td>
                 <td class="table-btn">
                     <div class="btn-list-wrap">
-                        <button class="btn-list edit"><i class="fas fa-pen"></i></button>
+                        <a href="{{ asset('cms/User/Role/Edit?id=') . $values->id }}"><button class="btn-list edit"><i class="fas fa-pen"></i></button></a>
                         <button class="btn-list delete"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </td>
@@ -28,8 +28,10 @@
         @endforeach
         </tbody>
     </table>
+    <div class="popup_wrap">
 </div>
 
+<script src="{{ asset('js/userjs/delete_user_role.js') }}" ></script>
 <script>
 
 </script>

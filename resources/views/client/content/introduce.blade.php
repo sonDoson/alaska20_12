@@ -100,99 +100,14 @@
     <!--div id="header-cover" style="background-image:url({{ asset('uploads/cover/cover_introduce.png') }})">
     </div-->
     <div class="content">
-        <!--SECTION 0-->
-        
-        <div class="section" id="section-0" style="">
-            <div class="row" style="margin-left: 0!important;">
-                <div class="title">
-                    <h2 style="display: inline-block;">{{ $category[1][$lang[0]] }}</h2>
-                    <p style="display: inline-block"><a href="/cat/1">| xem tất cả</a></p><!--gioi thieu chung-->
-                </div>
-            </div>
-            <div class="row" id="introduce" style="margin-left: 0!important;margin-right: 0!important;">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-9 " id="intro-content" style="overflow: hidden;">
-                    <div class="row">
-                    <div class="col-lg-6" id="intro-content-video" style="overflow: hidden;">
-                          <!-- Your embedded video player code -->
-                          <div class="fb-video" data-href="{{ $link }}" data-show-text="false">
-                          </div>
-                    </div>
-                    <div class="col-lg-6" id="intro-content-text">
-                        @if(!empty($section_0[key($section_0)][0]))
-                        <a style="color: #000" href="{!! '/cat/' . $section_0[key($section_0)][0]['id_category'] . '/' . $section_0[key($section_0)][0]['id'] !!}">
-                        @endif
-                            @if(!empty($section_0[key($section_0)][0]))
-                            <p><b>{{ $section_0[key($section_0)][0][$lang[0]] }}</b></p>
-                            {!! $section_0[key($section_0)][0][$lang[1]] !!}
-                            @endif
-                        </a>
-                    </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 col-xl-3" id="intro-extention">
-                    @if(!empty($section_0[key($section_0)]))
-                    @for($i=1; $i < sizeof($section_0[key($section_0)]); $i++)
-                        <a href="{!! '/cat/' . $section_0[key($section_0)][$i]['id_category'] . '/' . $section_0[key($section_0)][$i]['id'] !!}">
-                            <li style="list-style-type: none;">{!! $section_0[key($section_0)][$i][$lang[0]] !!}</li>
-                        </a>
-                    @endfor
-                    @endif
-                </div>
-            </div>
-        </div>
-        
-        <!--SECTION 1-->
+        <!--SECTION 0--> <!--deleted-->
+        <!--SECTION 1--> <!--short-item deleted-->
         
         <div class="section" id="section-1">
             <div class="title">
                 <h2 style="display: inline-block;">{{ $category[4][$lang[0]] }}</h2>
                 <p style="display: inline-block"><a href="/cat/4">| xem tất cả</a></p>
             </div>
-            <div class="short-news row" style="width: auto;padding: 0px!important;margin-left:0;">
-            @if(!empty($section_1[key($section_1)]))
-            @if(sizeof($section_1[key($section_1)]) > 4 && sizeof($section_1[key($section_1)]) < 7)
-            @for($i=3; $i < sizeof($section_1[key($section_1)]); $i++)
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 ml-0" style="padding-left: 0;">
-                <a href="{!! '/cat/' . $section_1[key($section_1)][$i]['id_category']. '/' . $section_1[key($section_1)][$i]['id'] !!}">
-                <div class="short-news-item">
-                    <div class="short-news-item-timetag">
-                        <div class="wrap-item-timetag">
-                            <p>{!! $section_1[key($section_1)][$i]['created_at'][0] !!}</p>
-                            <p>{!! $section_1[key($section_1)][$i]['created_at'][1] !!}</p>
-                        </div>
-                    </div>
-                    <div class="short-news-item-content">
-                        <h4>{!! $section_1[key($section_1)][$i][$lang[0]] !!}</h4>
-                        <p>{!! $section_1[key($section_1)][$i][$lang[1]] !!}</p>
-                    </div>
-                </div>
-                </a>
-                </div>
-            @endfor
-            @endif
-            @if(sizeof($section_1[key($section_1)]) >= 7)
-            @for($i=3; $i < 7; $i++)
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 ml-0" style="padding-left: 0;">
-                <a href="{!! '/cat/' . $section_1[key($section_1)][$i]['id_category']. '/' . $section_1[key($section_1)][$i]['id'] !!}">
-                <div class="short-news-item">
-                    <div class="short-news-item-timetag">
-                        <div class="wrap-item-timetag">
-                            <p>{!! $section_1[key($section_1)][$i]['created_at'][0] !!}</p>
-                            <p>{!! $section_1[key($section_1)][$i]['created_at'][1] !!}</p>
-                        </div>
-                    </div>
-                    <div class="short-news-item-content">
-                        <h4>{!! $section_1[key($section_1)][$i][$lang[0]] !!}</h4>
-                        <p>{!! $section_1[key($section_1)][$i][$lang[1]] !!}</p>
-                    </div>
-                </div>
-                </a>
-                </div>
-            @endfor
-            @endif
-            @endif
-            </div>
-            
             <div class="big-news row" style="width: auto;padding: 0px!important;margin-left:0;">
             @if(!empty($section_1[key($section_1)]))
             @if(sizeof($section_1[key($section_1)]) <= 4)
@@ -202,11 +117,10 @@
                 <div class="big-news-item">
                     <div class="big-news-item-image" style="background-image:url({{ $section_1[key($section_1)][$i]['images'][0] }})"></div>
                     <div class="big-news-item-content font-resize">
-                        <b>{!! $section_1[key($section_1)][$i][$lang[0]] !!}</b>
+                        <h4>{!! $section_1[key($section_1)][$i][$lang[0]] !!}</h4>
                         <div class="big-news-item-content-text">
                             <p>{!! $section_1[key($section_1)][$i][$lang[1]] !!}</p>
                         </div>
-                        <br />
                         <p>{!! $section_1[key($section_1)][$i]['created_at']['string'] !!}</p>
                     </div>
                 </div>
@@ -220,7 +134,7 @@
                 <div class="big-news-item">
                     <div class="big-news-item-image" style="background-image:url({{ $section_1[key($section_1)][$i]['images'][0] }})"></div>
                     <div class="big-news-item-content font-resize">
-                        <b>{!! $section_1[key($section_1)][$i][$lang[0]] !!}</b>
+                        <h4>{!! $section_1[key($section_1)][$i][$lang[0]] !!}</h4>
                         <div class="big-news-item-content-text">
                             <p>{!! $section_1[key($section_1)][$i][$lang[1]] !!}</p>
                         </div>
@@ -263,7 +177,7 @@
                     </div>
                     <div class="section-2-slider-text font-resize">
                         <div class="section-2-slider-text-top">
-                            <b>{{ $value[$lang[0]] }}</b>
+                            <h4>{{ $value[$lang[0]] }}</h4>
                                 {!! $value[$lang[1]] !!}
                         </div>
                         <div class="section-2-slider-text-extend">
@@ -277,36 +191,65 @@
             </div>
             @endif
         </div>
+        <!--SECTION 3--> <!--short-item deleted-->
+        
+        <div class="section" id="section-3">
+            <div class="section-3 row" style="width: auto;padding: 0px!important;margin-left:0;">
+            @foreach($section_3[0] as $key => $value)
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 ml-0" style="padding-left: 0; margin-bottom: 20px;">
+                <a style="color: #000" href="{{ asset('/static-posts?id=') . $key }}">
+                <div class="section-3-item">
+                    <h4>&nbsp;&nbsp;{!! $value[$lang[0]] !!}</h4>
+                    <div class="section-3-item-image" style="background-image:url({{ $value['image'] }})"></div>
+                    <div class="section-3-item-content font-resize">
+                        <div class="section-3-item-content-text">
+                            <p>{!! $value['subtitle_vn'] !!}</p>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                </div>
+            @endforeach
+            @foreach($section_3[1] as $key => $value)
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 ml-0" style="padding-left: 0; margin-bottom: 20px;">
+                <a style="color: #000" href="{{ asset('/form?id=') . $key }}">
+                <div class="section-3-item">
+                    <h4>&nbsp;&nbsp;{!! $value[$lang[0]] !!}</h4>
+                    <div class="section-3-item-image" style="background-image:url({{ $value['image'] }})"></div>
+                    <div class="section-3-item-content font-resize">
+                        <div class="section-3-item-content-text">
+                            <p>{!! $value['subtitle_vn'] !!}</p>
+                        </div>
+                    </div>
+                </div>
+                </a>
+                </div>
+            @endforeach
+            </div>
+        </div>
     </div>
 
     <footer>
         <div class="row section">
-            <div id="footer-left" class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            <div id="footer-left" class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
                 <div id="footer-left-img">
                     <img src="{{ asset('uploads/logo/logo02.png') }}" alt="alaska school" width="auto" height="100%" />
                 </div>
-                <div id="footer-left-form">
-                    <form method="POST" action="/send_mail">
-                            <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
-                        <div>
-                            <input name="email" type="text" placeholder=" * Email..." required /><br />
-                        </div>
-                        <div class="row" style="width: 100%;margin: 0;">
-                            <div class="col" style="padding:0">
-                            <input name="name" type="text" placeholder=" * Họ và tên..." required />
-                            </div>
-                            <div class="col" style="padding:0">
-                            <input name="number" type="text" placeholder=" * Số điện thoại..." required />
-                            </div>
-                        </div>
-                        <div>
-                            <textarea name="content"></textarea>
-                        </div>
-                        <input type="submit" value="SEND">
-                    </form>
+                <!-- form deleted -->
+                <br>
+                <br>
+                <div>
+                    <h4>Liên hệ với chúng tôi:</h4>
+                    <br>
+                    <p>Dc : 222 Abc, Def, Hà Nội, Việt Nam.</p><br>
+                    <p>T: 0123.456.789 | F: 0123.456.789</p><br>
+                    <p>E: info@alaska.edu.com</p><br>
+                    <p></p><br>
                 </div>
                 <div id="footer-left-conect">
-                    <div><p>Connect with us</p></div>
+                    <div><p>Liên kết với chúng tôi</p></div>
+                    <br>
+                    <br>
                     <div>
                         @foreach($contact['link'] as $key => $value)
                             @if($value['link'] !== '')
@@ -316,8 +259,18 @@
                     </div>
                 </div>
             </div>
-            <div id="footer-right" class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-
+            <div id="footer-mid" class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="margin-bottom: 30px;">
+                <iframe {!! $contact['map'] !!} width="100%" height="300px" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+            <div id="footer-right" class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
+                <div class="row" style="width: 100%; height: 100%;margin: 0" >
+                    <div class="col-6">
+                        dsa
+                    </div>
+                    <div class="col-6">
+                        cxz
+                    </div>
+                </div>
             </div>
         </div>
     </footer>

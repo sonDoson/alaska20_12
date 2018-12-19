@@ -1,0 +1,12 @@
+.right-side{
+    li{
+        position: relative;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid grey;
+        .inner{
+            text-align: left;
+            width: 100%;
+        }
+    }
+}

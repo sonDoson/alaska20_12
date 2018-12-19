@@ -25,7 +25,7 @@
                 <td class="table-time"></td>
                 <td class="table-btn">
                     <div class="btn-list-wrap">
-                        <button class="btn-list edit"><i class="fas fa-pen"></i></button>
+                        <a href="{{ asset('cms/User/Edit?id=') . $key }}"><button class="btn-list edit"><i class="fas fa-pen"></i></button></a>
                         <button class="btn-list delete"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </td>
@@ -33,10 +33,29 @@
         @endforeach
         </tbody>
     </table>
+    <div class="page-mode" value="{{ '#page-mode-' . $page_mode->page_present }}">
+        <div class="page-mode-btn-wrap" style="text-align: center;">
+        <button style="display:none;" id="btn-backward"><i class="fas fa-backward"></i></button>
+        @for($page = $page_round[0]; $page <= $page_round[1]; $page++)
+            <button class="page-number" id="{{ 'page-mode-' . $page }}" value="{{ $page }}">{{ $page }}</button>
+        @endfor
+        <button style="display:inline-block;" id="btn-forward"><i class="fas fa-forward"></i></button>
+        </div>
+    </div>
 </div>
+<div class="popup_wrap"></div>
 <!--javascript-->
-
+<script src="{{ asset('js/userjs/delete_conf.js') }}" ></script>
+<script src="{{ asset('js/function/getMethodUrl.js') }}" ></script>
 <script>
-
+    $().ready(function(){
+        var page_active = $('.page-mode').attr('value');
+        $(page_active).css('background-color', 'grey');
+        //Click action
+        $('.page-number').on('click', function(){
+            get[0] = $(this).attr('value');//push to get method
+            makingUrlAndGo();
+        });
+    });
 </script>
 @stop

@@ -7,6 +7,7 @@
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/resetCss.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/user_site/grid_layout/grid_layout.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/user_site/function/list/PageMode.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/user_site/nav/nav.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/user_site/btn/btn_user.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/user_site/container/' . str_replace('Data', '',$name_class) . '.css') }}">

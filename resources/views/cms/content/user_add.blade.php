@@ -3,7 +3,7 @@
 
 <h2 id="title" >Thêm người dùng</h2>
 <div class="wrap-inline-block">
-<div class="box form">
+<div class="box form" style="width: auto !important">
     <form method="POST" action="" enctype="multipart/form-data">
         <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
         <table>

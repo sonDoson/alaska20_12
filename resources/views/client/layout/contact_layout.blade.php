@@ -18,6 +18,7 @@
     <link href="{{ asset('css/client/header/banner-01-css.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/client/content/contact.css') }}" rel="stylesheet">
     <link href="{{ asset('css/client/items/items.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/client/content/left_side.css') }}" rel="stylesheet" />
     <!-- JaveScript -->
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 
@@ -32,10 +33,8 @@
     <div>
         @include('client.content.send_mail_form')
     </div>
-    <div class="content">
-        @include('client.content.new_elements')
-    </div>
-    <div style="margin-top: 30px;">
+    <!--new elements - deleted-->
+    <div>
         @include('client.nav_and_footer.footer')
     </div>
     @include('client.content.facebook_video_function')

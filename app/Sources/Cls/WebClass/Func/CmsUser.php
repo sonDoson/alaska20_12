@@ -6,6 +6,7 @@ use App\Sources\Cls\WebClass\Func\Method\CmsUserRoleCategory;
 use App\Sources\Cls\WebClass\Func\Method\CmsUserList;
 use App\Sources\Cls\WebClass\Func\Method\CmsUserAdd;
 use App\Sources\Cls\WebClass\Func\Method\CmsUserRoleValidator;
+use App\Sources\Cls\WebClass\Func\Method\CmsUserProfile;
 
 class CmsUser{
     public static function userAdd($request){
@@ -22,5 +23,8 @@ class CmsUser{
     }
     public static function userRoleValidator($route, $action){
         return CmsUserRoleValidator::userRoleValidator($route, $action);
+    }
+    public static function userProfile($id){
+        return CmsUserProfile::userProfile($id);
     }
 }

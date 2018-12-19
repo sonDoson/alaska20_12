@@ -50,8 +50,36 @@
         padding-top: 10px;
     }
     .big-news-item-content-text{
-        height: 57px;
+        height: auto;
         width: 300px;
-        overflow: hidden;
     }
 }
+
+.section-3{
+    margin-bottom: 20px;
+}
+    .section-3-item{
+        width: 300px;
+        outline: 1px solid #a6196f;
+        outline-offset: 5px;
+        h4{
+            margin-bottom: 5px;
+        }
+    }
+    .section-3-item-image{
+        width: 300px;
+        height: 204px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .section-3-item-content{
+        width: 300px;
+        b{  
+            font-size: 1.1em;
+        }
+        padding-top: 10px;
+    }
+    .section-3-item-content-text{
+        height: auto;
+        width: 300px;
+    }

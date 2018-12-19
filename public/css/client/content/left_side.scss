@@ -1,0 +1,21 @@
+.nav-left{
+    padding-left: 8px;
+    ul{
+        li{
+            text-align: right;
+            padding: 3px;
+         
+            i{
+                -webkit-transition: 0.3s; /* Safari */
+                transition: 0.3s;   
+                font-size: 30px;
+                color: lightgrey;
+            }
+            &:hover{
+                i{
+                    color: grey;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.nav-left {
+  padding-left: 8px; }
+  .nav-left ul li {
+    text-align: right;
+    padding: 3px; }
+    .nav-left ul li i {
+      -webkit-transition: 0.3s;
+      /* Safari */
+      transition: 0.3s;
+      font-size: 30px;
+      color: lightgrey; }
+    .nav-left ul li:hover i {
+      color: grey; }
+
+/*# sourceMappingURL=left_side.css.map */
