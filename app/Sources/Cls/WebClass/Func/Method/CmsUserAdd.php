@@ -19,13 +19,18 @@ class CmsUserAdd{
         if($validator->fails()) {
             return [$validator->errors(), $request->all()];
         }   else    {
-            DB::table('users')->insert([
+            $id_user = DB::table('users')->insertGetId([
                 'name' => $request->name,
-                'id_user_role' => $request->role,
+                //'id_user_role' => $request->role,
                 'email' => $request->email,
-                'phone' => $request->phone,
+                //'phone' => $request->phone,
                 'password' => bcrypt($request->password),
                 'created_at' => Carbon::now('Asia/Ho_Chi_Minh')
+            ]);
+            DB::table('users_infomation')->insertGetId([
+                'id_user' => $id_user,
+                'id_user_role' => $request->role,
+                'phone' => $request->phone,
             ]);
             return 0;
         }

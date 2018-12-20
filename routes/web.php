@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return redirect('/introduce');
 });
+Route::post('/Switch_Language', 'ControllerSwitchLanguage@postsSwitchLanguage')->name('postsSwitchLanguage');
 Route::get('/introduce', 'ControllerIntroduce@getIntroduce')->name('getIntroduce');
 Route::get('/cat/{id_category}', 'ControllerLvCategory@getCategoryList')->name('getCategoryList');
 Route::get('/cat/{id_category}/{id_posts}', 'ControllerLvPosts@getPosts')->name('getPosts');
@@ -51,7 +52,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/cms/User/Role/Edit', 'ControllerCmsUser@getCmsUserRoleEdit')->name('getCmsUserRoleEdit');
     //Cms Recruitment
     Route::get('/cms/Recruitment/List', 'ControllerCmsRecruiment@getCmsRecruimentList')->name('getCmsRecruimentList');
-    Route::get('/cms/Recruitment/Files', 'ControllerCmsRecruiment@getCmsRecruimentFiles')->name('getCmsRecruimentFiles');
     //Cms Admissions
     Route::get('/cms/Admissions/List', 'ControllerCmsAdmissions@getCmsAdmissionsList')->name('getCmsAdmissionsList');
     
@@ -104,8 +104,10 @@ Route::group(['middleware' => ['auth']], function () {
     
     //static posts
     Route::get('/cms/Posts/Static-Posts', 'ControllerCmsPostsStaticPosts@getCmsPostsStaticPostsList')->name('getCmsPostsStaticPostsList');
-    Route::get('/cms/Posts/Static-Posts-Edit-Contact', 'ControllerCmsPostsStaticPosts@getCmsPostsMessageEdit')->name('getCmsPostsMessageEdit');
-    Route::post('/cms/Posts/Static-Posts-Edit-Contact', 'ControllerCmsPostsStaticPosts@postCmsPostsMessageEdit')->name('postCmsPostsMessageEdit');
+    Route::get('/cms/Posts/Static-Posts-Edit-Contact', 'ControllerCmsPostsStaticPosts@getCmsContactEdit')->name('getCmsContactEdit');
+    Route::post('/cms/Posts/Static-Posts-Edit-Contact', 'ControllerCmsPostsStaticPosts@postCmsContactEdit')->name('postCmsContactEdit');
+    Route::get('/cms/Posts/Static-Posts-Edit-Footer-Text', 'ControllerCmsPostsStaticPosts@getCmsFooterTextEdit')->name('getCmsFooterTextEdit');
+    Route::post('/cms/Posts/Static-Posts-Edit-Footer-Text', 'ControllerCmsPostsStaticPosts@postCmsFooterTextEdit')->name('postCmsFooterTextEdit');
     
     //
     Route::get('/user/welcome', 'ControllerUserWelcome@getUserWelcome')->name('getUserWelcome');

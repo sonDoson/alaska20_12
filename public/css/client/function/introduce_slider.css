@@ -29,7 +29,7 @@
       height: 220px;
       background-color: grey; }
     .section-2-slider .section-2-slider-item .section-2-slider-text .section-2-slider-text-top {
-      height: 58px;
+      height: auto;
       overflow: hidden; }
       .section-2-slider .section-2-slider-item .section-2-slider-text .section-2-slider-text-top b {
         font-size: 1.1em; }

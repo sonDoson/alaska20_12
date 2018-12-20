@@ -1,38 +1,8 @@
-
     footer{
-        width: 100%; min-height: 500px; background-color: #a6196f; color: #ffffff;
+        width: 100%; min-height: 400px; background-color: #a6196f; color: #ffffff;
     }
-    #footer-left, #footer-right{
-        height: auto;
-        padding: 0;
-        margin-bottom: 50px;
-    }
-    
     #footer-left-img{
         width: 180px; height: 70px; margin-top: -20px;
-    }
-    #footer-left-form{
-        margin-top: 20px;
-        input{
-            border: none;
-            margin-bottom: 6px;
-            padding: 10px;
-        }
-        input[name="name"],input[name="number"]{
-        }
-        input[name="number"]{
-            float: right;
-        }
-        input[type="submit"]{
-            border: none;
-            color: #f0f0f0;
-            font-weight: bold;
-            background-color: #f99d1b; }
-        textarea{
-            border: none;
-            width: 100%;
-            height: 128px;
-        }
     }
     #footer-left-conect{
         width: 100%;
@@ -47,7 +17,9 @@
             margin-right: 10px
         }
     }
-
+    #footer-text{
+        line-height: 25px;
+    }
 
 
 @media (min-width: 1200px) {

@@ -18,6 +18,14 @@ class ControllerIntroduce extends Controller
         $lang_section = Config::configLanguage();
         $lang[] = 'name_' . $lang_section;
         $lang[] = 'value_' . $lang_section;
+        $lang[] = 'subtitle_' . $lang_section;
+        //static text
+        $db_static_text = DB::table('static_text_client')->get();
+        $static_text = array();
+        foreach($db_static_text as $key => $value){
+            $static_text[$value->id_text][$value->id]['value_en'] = $value->value_en;
+            $static_text[$value->id_text][$value->id]['value_vn'] = $value->value_vn;
+        }
         //contact;
         $contact = ClientContact::getContact();
         //category
@@ -34,6 +42,6 @@ class ControllerIntroduce extends Controller
         $section_3[0] = ClientItem::getListItem('posts_static', 1);
         $section_3[1] = ClientItem::getListItem('registration', 1);
         
-        return view('client.content.introduce', compact('lang', 'contact', 'category', 'link', 'section_1', 'section_2', 'section_3'));
+        return view('client.content.introduce', compact('static_text', 'lang_section', 'lang', 'contact', 'category', 'link', 'section_1', 'section_2', 'section_3'));
     }
 }

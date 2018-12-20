@@ -19,6 +19,14 @@ class ControllerLvCategory extends Controller
         $lang_section = Config::configLanguage();
         $lang[] = 'name_' . $lang_section;
         $lang[] = 'value_' . $lang_section;
+        $lang[] = 'subtitle_' . $lang_section;
+        //static text
+        $db_static_text = DB::table('static_text_client')->get();
+        $static_text = array();
+        foreach($db_static_text as $key => $value){
+            $static_text[$value->id_text][$value->id]['value_en'] = $value->value_en;
+            $static_text[$value->id_text][$value->id]['value_vn'] = $value->value_vn;
+        }
         //nav
         $category = Category::categoryGet('posts_category');
         foreach($category as $i => $value){
@@ -33,8 +41,8 @@ class ControllerLvCategory extends Controller
         if($id == 3){
             $section_3 = ClientItem::getListItem('registration', 1);
         }   elseif($id == 5)    {
-            $section_3 = ClientItem::getListItem('registration', 1);
+            $section_3 = ClientItem::getListItem('registration', 2);
         }
-        return view('client.content.lv_category', compact('lang', 'contact', 'category', 'section_1', 'section_3', 'section_0', 'category_item'));
+        return view('client.content.lv_category', compact('static_text', 'lang_section', 'lang', 'contact', 'category', 'section_1', 'section_3', 'section_0', 'category_item'));
     }
 }

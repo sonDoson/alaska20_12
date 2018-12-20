@@ -6,29 +6,26 @@ use Illuminate\Http\Request;
 use App\Sources\Cls\Config\Config;
 use App\Sources\Cls\WebClass\Func\Category;
 use App\Sources\Cls\WebClass\Func\Method\PostsGetItems;
+use App\Sources\Cls\WebClass\Func\ClientContact;
 use DB;
 
 class ControllerClientForm extends Controller
 {
     public function getClientForm(Request $request){
-        //contact footer
-        $cont = DB::table('contact')->where('id', 1)->first();
-        $contact = array();
-        $contact['name_en'] = $cont->name_en;
-        $contact['name_vn'] = $cont->name_vn;
-        $contact['value_en'] = $cont->value_en;
-        $contact['value_vn'] = $cont->value_vn;
-        $contact['link']['facebook']['link'] = $cont->facebook;
-        $contact['link']['facebook']['icon'] = 'fab fa-facebook';
-        $contact['link']['youtube']['link'] = $cont->youtube;
-        $contact['link']['youtube']['icon'] = 'fab fa-youtube';
-        $contact['link']['instagram']['link'] = $cont->instagram;
-        $contact['link']['instagram']['icon'] = 'fab fa-instagram';
-        $contact['map'] = $cont->map;
+        //contact
+        $contact = ClientContact::getContact();
         //section
         $lang_section = Config::configLanguage();
         $lang[] = 'name_' . $lang_section;
         $lang[] = 'value_' . $lang_section;
+        $lang[] = 'subtitle_' . $lang_section;
+        //static text
+        $db_static_text = DB::table('static_text_client')->get();
+        $static_text = array();
+        foreach($db_static_text as $key => $value){
+            $static_text[$value->id_text][$value->id]['value_en'] = $value->value_en;
+            $static_text[$value->id_text][$value->id]['value_vn'] = $value->value_vn;
+        }
         //nav
         $category = Category::categoryGet('posts_category');
         foreach($category as $i => $value){
@@ -36,13 +33,13 @@ class ControllerClientForm extends Controller
         }
         //right nav
         //section 0 get posts
-        $db_section_0 = DB::table('posts_static_posts')->where('id', $request->id)->first();
+        $db_section_0 = DB::table('registration_posts')->where('id', $request->id)->first();
         $section_0['name_en'] = $db_section_0->name_en;
         $section_0['name_vn'] = $db_section_0->name_vn;
         $section_0['value_en'] = $db_section_0->value_en;
         $section_0['value_vn'] = $db_section_0->value_vn;
         //section 1
         $section_1 = PostsGetItems::postsGetItems('posts_posts', 4);
-        return view('client.content.lv_posts_static', compact('lang', 'contact', 'category', 'section_1', 'section_0', 'category_item', 'id_cat'));
+        return view('client.content.lv_posts_static', compact('static_text', 'lang_section', 'lang', 'contact', 'category', 'section_1', 'section_0', 'category_item', 'id_cat'));
     }
 }

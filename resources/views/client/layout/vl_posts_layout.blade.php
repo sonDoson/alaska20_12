@@ -23,6 +23,13 @@
     <link href="{{ asset('css/client/items/items.css') }}" rel="stylesheet" />
     <!-- JaveScript -->
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+        <!-- You can use open graph tags to customize link previews.
+    Learn more: https://developers.facebook.com/docs/sharing/webmasters -->
+    <meta property="og:url"           content="https://www.wootware.co.za/samsung-sl-m2675f-xpress-laser-multifunction-print-scan-copy-fax-mono-printer.html" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Your Website Title" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="https://www.wootware.co.za/media/catalog/product/cache/1/image/1024x768/9df78eab33525d08d6e5fb8d27136e95/2/6/2675fnfinal0.jpg" />
 
 </head>
 <body>
@@ -41,5 +48,14 @@
     <script src="{{asset('js/banner/skel.min.js')}}"></script>
     <script src="{{asset('js/banner/main.js')}}"></script>
     <script src="{{asset('js/banner/util.js')}}"></script>
+    <!-- Load Facebook SDK for JavaScript -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>

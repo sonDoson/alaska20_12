@@ -25,7 +25,7 @@ class CmsPostsUpdate{
         }
         DB::table('posts_posts')->where('id', $request->id_posts)->update(['value_en' => $request->value['en'], 'value_vn' => $request->value['vn']]);
         //edit subtitle
-        DB::table('posts_subtitle')->where('id', $request->id_posts)->update(['value_en' => $request->sub['en'], 'value_vn' => $request->sub['vn']]);
+        DB::table('posts_subtitle')->where('id_posts', $request->id_posts)->update(['value_en' => $request->sub['en'], 'value_vn' => $request->sub['vn']]);
         //edit image
         if($request->hasFile('images')){
             //delete old image
@@ -53,7 +53,10 @@ class CmsPostsUpdate{
         }
         //edit stress
         if($request->stress == true){
-            PostsAddStress::postsAddStress('posts_posts', $db_posts->id_category, $request->id_posts);
+            $stress = DB::table('posts_posts_stress')->where('id_posts', $request->id_posts)->first();
+            if(empty($stress)){
+                PostsAddStress::postsAddStress('posts_posts', $db_posts->id_category, $request->id_posts);
+            }
         }   else    {
             DB::table('posts_posts_stress')->where('id_posts', $request->id_posts)->delete();
         }

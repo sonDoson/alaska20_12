@@ -27,8 +27,10 @@ class CmsFilesEdit{
         if($request->hasFile('file')){
             //delete old image
             $db_old_file = DB::table($table_files)->where('id_posts', $request->id_posts)->first();
+            if($db_old_file !== null){
             unlink(public_path($db_old_file->file_path));
             DB::table($table_files)->where('id_posts', $request->id_posts)->delete();
+            }
             //add new image
             CmsFilesUpload::fileUploadSingle($request, $table_posts, $request->id_posts);
         }

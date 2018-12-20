@@ -25,8 +25,6 @@
             <a style="width: 250px;" class="nav_contact"  href="{{ '/contact' }}">{{ $contact[$lang[0]] }}</a>
         </div>
     </div>
-    
-    
     <div class="container-nav" id="cover-left">
     </div>
     <div class="container-nav menu-wrap">
@@ -35,21 +33,27 @@
             </div>
         </a>
         <div class="nav-wrap">
-            <nav class="container" id="nav-top" style="padding-left: 0 !important;" >
+            <nav class="container" id="nav-top" style="" >
                 @for($i = 4; $i <= 5; $i++)
-                    <a id="{{ 'nav_' . $i }}" class="{{ 'nav_' . $i }} col-lg-3" style="padding-left: 0 !important;"  href="{{ '/cat/' . $i }}">{{ $category[$i][$lang[0]] }}</a>
+                    <a id="{{ 'nav_' . $i }}" class="{{ 'nav_' . $i }} col-lg-2" style="padding-left: 0 !important;"  href="{{ '/cat/' . $i }}">{{ $category[$i][$lang[0]] }}</a>
                 @endfor
-                <a id="nav_contact" class="nav_contact col-lg-3" style="padding-left: 0 !important;" href="{{ '/contact' }}">{{ $contact[$lang[0]] }}</a>
+                <a id="nav_contact" class="nav_contact col-lg-3" href="{{ '/contact' }}">{{ $contact[$lang[0]] }}</a>
                     
                 <form class="col-lg-3" id="nav-search" method="GET" action="/search" style="display: inline-block;">
                     <input type="text" name="search" />
                 </form>
             </nav>
+            <form id="lang-button" method="POST" action="/Switch_Language">
+                {{ csrf_field() }}
+                <input type="hidden" id="session-language" value="{{ $lang_section }}">
+                <label class="switch"><input class="checkbox-language" type="checkbox" name="switch_lang" id="togBtn"><div class="slider round"><!--ADDED HTML --><span class="on">Vn</span><span class="off">En</span><!--END--></div></label>
+            </form>
             <nav class="container" id="nav-bottom">
                 @for($i = 1; $i <= 3; $i++)
                 <a class="{{ 'nav_' . $i }} col-lg-4" id="{{ 'nav_' . $i }}" href="{{ '/cat/' . $i }}"><b>{{ $category[$i][$lang[0]] }}</b></a>
                 @endfor
             </nav>
+
         </div>
     </div>
 </header>
@@ -71,4 +75,17 @@
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
+</script>
+<script>
+    $().ready(function(){
+        var section_language = $('#session-language').attr('value');
+        if(section_language == 'vn'){
+            $('.checkbox-language').prop('checked', false);
+        }   else    {
+            $('.checkbox-language').prop('checked', true); 
+        }
+        $('.checkbox-language').click(function(){
+            $('#lang-button').submit();
+        });
+    });
 </script>

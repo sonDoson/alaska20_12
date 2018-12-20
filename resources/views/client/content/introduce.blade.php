@@ -58,19 +58,24 @@
                 </div>
             </a>
             <div class="nav-wrap">
-                <nav class="container" id="nav-top" style="padding-left: 0 !important;" >
+                <nav class="container" id="nav-top" style="" >
                     @for($i = 4; $i <= 5; $i++)
-                        <a class="col-lg-3" style="padding-left: 0 !important;" id="{{ 'nav_' . $i }}" href="{{ '/cat/' . $i }}">{{ $category[$i][$lang[0]] }}</a>
+                        <a id="{{ 'nav_' . $i }}" class="{{ 'nav_' . $i }} col-lg-2" style="padding-left: 0 !important;"  href="{{ '/cat/' . $i }}">{{ $category[$i][$lang[0]] }}</a>
                     @endfor
-                    <a class="col-lg-3"  style="padding-left: 0 !important;" id="nav_contact"  href="{{ '/contact' }}">{{ $contact[$lang[0]] }}</a>
+                    <a id="nav_contact" class="nav_contact col-lg-3" href="{{ '/contact' }}">{{ $contact[$lang[0]] }}</a>
                         
                     <form class="col-lg-3" id="nav-search" method="GET" action="/search" style="display: inline-block;">
                         <input type="text" name="search" />
                     </form>
                 </nav>
+                <form id="lang-button" method="POST" action="/Switch_Language">
+                    {{ csrf_field() }}
+                    <input type="hidden" id="session-language" value="{{ $lang_section }}">
+                    <label class="switch"><input class="checkbox-language" type="checkbox" name="switch_lang" id="togBtn"><div class="slider round"><!--ADDED HTML --><span class="on">Vn</span><span class="off">En</span><!--END--></div></label>
+                </form>
                 <nav class="container" id="nav-bottom">
                     @for($i = 1; $i <= 3; $i++)
-                    <a class="col-lg-4" id="{{ 'nav_' . $i }}" href="{{ '/cat/' . $i }}"><b>{{ $category[$i][$lang[0]] }}</b></a>
+                    <a class="{{ 'nav_' . $i }} col-lg-4" id="{{ 'nav_' . $i }}" href="{{ '/cat/' . $i }}"><b>{{ $category[$i][$lang[0]] }}</b></a>
                     @endfor
                 </nav>
             </div>
@@ -136,7 +141,7 @@
                     <div class="big-news-item-content font-resize">
                         <h4>{!! $section_1[key($section_1)][$i][$lang[0]] !!}</h4>
                         <div class="big-news-item-content-text">
-                            <p>{!! $section_1[key($section_1)][$i][$lang[1]] !!}</p>
+                            <p>{!! $section_1[key($section_1)][$i][$lang[2]] !!}</p>
                         </div>
                         <p style="margin-top: 10px;">{!! $section_1[key($section_1)][$i]['created_at']['string'] !!}</p>
                     </div>
@@ -162,7 +167,7 @@
             </div>
             <div class="wrap-section-2">
                 <div class="title">
-                    <h2 style="display: inline-block;">ALASKA ACADEMY HIGHLIGHT</h2>
+                    <h2 style="display: inline-block;">{{ $static_text[1][1][$lang[1]] }}</h2>
                 </div>
             </div>
             @if(!empty($section_2))
@@ -178,7 +183,7 @@
                     <div class="section-2-slider-text font-resize">
                         <div class="section-2-slider-text-top">
                             <h4>{{ $value[$lang[0]] }}</h4>
-                                {!! $value[$lang[1]] !!}
+                                {!! $value[$lang[2]] !!}
                         </div>
                         <div class="section-2-slider-text-extend">
                             <p>{!! $value['created_at']['string'] !!}</p>
@@ -238,43 +243,50 @@
                 <!-- form deleted -->
                 <br>
                 <br>
-                <div>
-                    <h4>Liên hệ với chúng tôi:</h4>
-                    <br>
-                    <p>Dc : 222 Abc, Def, Hà Nội, Việt Nam.</p><br>
-                    <p>T: 0123.456.789 | F: 0123.456.789</p><br>
-                    <p>E: info@alaska.edu.com</p><br>
-                    <p></p><br>
-                </div>
-                <div id="footer-left-conect">
-                    <div><p>Liên kết với chúng tôi</p></div>
-                    <br>
-                    <br>
+                <div id="footer-text">
                     <div>
-                        @foreach($contact['link'] as $key => $value)
-                            @if($value['link'] !== '')
-                            <a href="{{ $value['link'] }}" style="color: #ffffff"><i style="font-size: 45px; margin-right: 10px" class="{{ $value['icon'] }}"></i></a>
-                            @endif
-                        @endforeach
+                        <h4>{{ $static_text[2][2][$lang[1]] }}:</h4>
+                        <p>Ad: {!! $contact['address'] !!}</p>
+                        <p>T: {!! $contact['phone'] !!} | F: {!! $contact['fax'] !!}</p>
+                        <p>E: {!! $contact['email'] !!}</p>
+                    </div>
+                    <div id="footer-left-conect">
+                        <br>
+                        <div>
+                            @foreach($contact['link'] as $key => $value)
+                                @if($value['link'] !== '')
+                                <a href="{{ $value['link'] }}" style="color: #ffffff"><i style="font-size: 45px; margin-right: 10px" class="{{ $value['icon'] }}"></i></a>
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
             <div id="footer-mid" class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" style="margin-bottom: 30px;">
                 <iframe {!! $contact['map'] !!} width="100%" height="300px" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
+            <!--text-->
             <div id="footer-right" class="col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3">
                 <div class="row" style="width: 100%; height: 100%;margin: 0" >
-                    <div class="col-6">
-                        dsa
-                    </div>
-                    <div class="col-6">
-                        cxz
-                    </div>
+                    {!! $contact['footer_text'][$lang[1]] !!}
                 </div>
             </div>
         </div>
     </footer>
     <script src="{{ asset('js/function/introduce_slider.js') }}"></script>
+    <script>
+        $().ready(function(){
+            var section_language = $('#session-language').attr('value');
+            if(section_language == 'vn'){
+                $('.checkbox-language').prop('checked', false);
+            }   else    {
+                $('.checkbox-language').prop('checked', true); 
+            }
+            $('.checkbox-language').click(function(){
+                $('#lang-button').submit();
+            });
+        });
+    </script>
     <script>
         var str = document.URL;
         str_s = str.split("cat/");

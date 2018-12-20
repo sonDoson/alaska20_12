@@ -45,6 +45,6 @@ class ControllerCmsPosts extends Controller
     }
     public function postCmsPostsNewsEdit(Request $request){
         CmsPosts::postsEdit($request);
-        return redirect()->route('getCmsPostsMessageList');
+        return redirect()->route('getCmsPostsNewsList');
     }
 }

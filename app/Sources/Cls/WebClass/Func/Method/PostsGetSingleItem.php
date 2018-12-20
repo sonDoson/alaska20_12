@@ -29,7 +29,8 @@ class PostsGetSingleItem{
         $date_format[0] = $date[2];
         $date_format[1] = $M[(int)$date[1] - 1];
         $date_format[2] = $date[0];
-        
+        //ubtitle
+        $data_subtile = DB::table('posts_subtitle')->where('id_posts', $id_posts)->first();
         //return
         $return = array();
         $return['id'] = $data_posts->id;
@@ -43,6 +44,13 @@ class PostsGetSingleItem{
         $return['created_at'] = $date_format;
         $return['images'] = $image;
         $return['stress'] = $stress;
+        if(!empty($data_subtile)){
+            $return['subtitle_en'] = $data_subtile->value_en;
+            $return['subtitle_vn'] = $data_subtile->value_vn;
+        }   else    {
+            $return['subtitle_en'] = null;
+            $return['subtitle_vn'] = null;
+        }
         return $return;
     }
 }

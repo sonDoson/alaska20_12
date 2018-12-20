@@ -17,6 +17,14 @@ class ControllerContact extends Controller
         $lang_section = Config::configLanguage();
         $lang[] = 'name_' . $lang_section;
         $lang[] = 'value_' . $lang_section;
+        $lang[] = 'subtitle_' . $lang_section;
+        //static text
+        $db_static_text = DB::table('static_text_client')->get();
+        $static_text = array();
+        foreach($db_static_text as $key => $value){
+            $static_text[$value->id_text][$value->id]['value_en'] = $value->value_en;
+            $static_text[$value->id_text][$value->id]['value_vn'] = $value->value_vn;
+        }
         //contact
         $contact = ClientContact::getContact();
         //category
@@ -32,6 +40,6 @@ class ControllerContact extends Controller
         $section_1 = PostsGetItems::postsGetItems('posts_posts', 4);
         //section 2
         $section_2 = PostsGetStress::postsGetStress('posts_posts');
-        return view('client.content.contact', compact('lang', 'contact', 'category', 'category_item', 'section_0', 'link', 'section_1', 'section_2'));
+        return view('client.content.contact', compact('static_text', 'lang_section', 'lang', 'contact', 'category', 'category_item', 'section_0', 'link', 'section_1', 'section_2'));
     }
 }

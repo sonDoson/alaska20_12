@@ -11,9 +11,10 @@ class ControllerCmsAdmissions extends Controller
 {
     public function getCmsAdmissionsList(){
         $menu = Cms::menu();
-        $list = CmsAdmissions::admissionsList();
+        $category = DB::table('registration_category')->where('id', 1)->first();
+        $list = CmsAdmissions::admissionsList(1);
         $name_class = "list";
-        return view('cms.content.admissions_list', compact('menu', 'name_class', 'list'));
+        return view('cms.content.admissions_list', compact('menu', 'name_class', 'list', 'category'));
     }
     public function getCmsAdmissionsEditForm(Request $request){
         $menu = Cms::menu();
@@ -27,13 +28,11 @@ class ControllerCmsAdmissions extends Controller
         $name_class = "list";
         $layout = "WebUserPost.css";
         $return = CmsAdmissions::admisstionEdit($request);
-        return redirect()->route('getCmsAdmissionsEditForm');
+        return back();
     }
-    
-    
-    public function getCmsAdmissionsFiles(){
-        $menu = Cms::menu();
-        $name_class = "list";
-        return view('cms.content.admissions_files', compact('menu', 'name_class'));
-    }
+    //public function getCmsAdmissionsFiles(){
+    //    $menu = Cms::menu();
+    //    $name_class = "list";
+    //    return view('cms.content.admissions_files', compact('menu', 'name_class'));
+    //}
 }

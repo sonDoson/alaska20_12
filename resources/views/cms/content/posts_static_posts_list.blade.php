@@ -27,12 +27,12 @@
             </tr>
             <tr class="something">
                 <td class="table-id">&nbsp;2</td>
-                <td class="table-name">&nbsp;Chân trang</td>
+                <td class="table-name">&nbsp;Chân trang phụ</td>
                 <td class="table-name">&nbsp;Nội dung tĩnh</td>
                 <td class="table-time"></td>
                 <td class="table-btn">
                     <div class="btn-list-wrap">
-                        <a href="{{ asset('cms/Posts') . '/' . $route . '-Edit?id=4' }}"><button class="btn-list edit"><i class="fas fa-pen"></i></button></a>
+                        <a href="{{ asset('cms/Posts') . '/' . $route . '-Edit-Footer-Text' }}"><button class="btn-list edit"><i class="fas fa-pen"></i></button></a>
                         <button class="btn-list" style="background-color: lightgrey!important;"><i class="fas fa-trash-alt"></i></button>
                     </div>
                 </td>
