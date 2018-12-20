@@ -10,6 +10,7 @@ class PostsGetSingleItem{
         //get category
         $data_category = DB::table(substr_replace($table_posts, 'category', -5))->where('id', $data_posts->id_category)->first();
         //get image
+        $image = array();
         $images = DB::table($table_posts . '_images')->where('id_posts', $id_posts)->get();
         foreach($images as $key => $value){
             $image[] = $value->image_path;

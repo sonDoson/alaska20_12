@@ -38,7 +38,7 @@ class CmsPostsUpdate{
             $images = $request->file('images');
             foreach($images as $key => $image){
                 //name
-                $name = $id_posts . '_' . $key . '.' . $image->getClientOriginalExtension();
+                $name = $request->id_posts . '_' . $key . '.' . $image->getClientOriginalExtension();
                 //path
                 $path = '/uploads/images/posts_posts';
                 $destinationPath = public_path($path);
@@ -47,7 +47,7 @@ class CmsPostsUpdate{
                 $table_images = 'posts_posts_images';
                 $image_path = $path . '/' . $name;
                 DB::table($table_images)->insert(
-                    ['id_posts' => $id_posts, 'image_name' => $name, 'image_path' => $image_path]
+                    ['id_posts' => $request->id_posts, 'image_name' => $name, 'image_path' => $image_path]
                 );
             }
         }

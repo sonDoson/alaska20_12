@@ -38,8 +38,10 @@ class ControllerClientForm extends Controller
         $section_0['name_vn'] = $db_section_0->name_vn;
         $section_0['value_en'] = $db_section_0->value_en;
         $section_0['value_vn'] = $db_section_0->value_vn;
+        //file
+        $file = DB::table('registration_files')->where('id_posts', $request->id)->first();
         //section 1
         $section_1 = PostsGetItems::postsGetItems('posts_posts', 4);
-        return view('client.content.lv_posts_static', compact('static_text', 'lang_section', 'lang', 'contact', 'category', 'section_1', 'section_0', 'category_item', 'id_cat'));
+        return view('client.content.lv_posts_static', compact('static_text', 'lang_section', 'lang', 'contact', 'category', 'section_1', 'section_0', 'category_item', 'file', 'id_cat'));
     }
 }
