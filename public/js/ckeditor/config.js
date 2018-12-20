@@ -8,15 +8,15 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';http://
 	// config.uiColor = '#AADC6E';
 	
-	config.filebrowserBrowseUrl = 'http://localhost:8000/js/ckfinder/ckfinder.html';
+	config.filebrowserBrowseUrl = 'http://alaska.edu.vn/js/ckfinder/ckfinder.html';
  
-	config.filebrowserImageBrowseUrl = 'http://localhost:8000/js/ckfinder/ckfinder.html?type=Images';
+	config.filebrowserImageBrowseUrl = 'http://alaska.edu.vn/js/ckfinder/ckfinder.html?type=Images';
  
-	config.filebrowserFlashBrowseUrl = 'http://localhost:8000/js/ckfinder/ckfinder.html?type=Flash';
+	config.filebrowserFlashBrowseUrl = 'http://alaska.edu.vn/js/ckfinder/ckfinder.html?type=Flash';
  
-	config.filebrowserUploadUrl = 'http://localhost:8000/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
+	config.filebrowserUploadUrl = 'http://alaska.edu.vn/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
  
-	config.filebrowserImageUploadUrl = 'http://localhost:8000/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
+	config.filebrowserImageUploadUrl = 'http://alaska.edu.vn/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
  
-	config.filebrowserFlashUploadUrl = 'http://localhost:8000/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
+	config.filebrowserFlashUploadUrl = 'http://alaska.edu.vn/js/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
 };
